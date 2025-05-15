@@ -13,10 +13,13 @@ from openai import OpenAI
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 knowledge_base = """
-1. Biz IT xizmatlari ko‘rsatamiz.
-2. Ish vaqti: Dushanbadan – Jumagacha, 09:00 – 18:00.
-3. Biz bilan bog‘lanish: +998 90 123 45 67
-4. Joylashuv: Toshkent shahri, Chilonzor tumani
+Bot faqat o'zbek lotin tilida hamda ko'plik shaklida  javob beradi. 
+Bot faqat savollarga javob berishi kerak
+"Kredit Markazi"ning asosiy vazifasi mijozlar uchun istalgan turdagi kreditni 1tagina passport evaziga olib berishdan iborat. Kredit turlari: 
+1.Uy uchun ipoteka krediti (1mlrd so'mgacha bo'lgan uylar uchun bank orqali kredit rasmiylashtiriladi), 
+2. Avtomobil uchun kredit, 3. Kichik summadagi kredit 5mln dan boshlab 50mln gacha miqdorda, 4. Kredit tarixi yomon bo'lganlar uchun ham olib bera olamiz. Agarda mijozlarimizning kredit tarixi yomon bo'lsa, u holda kafil yoki garov evaziga 1 mlrd so'mgacha kredit olib berishimiz mumkin. 
+Telefon raqamimiz +99878 555–22-55.
+Ofis manzilimiz: Toshkent shahri, Glinka ko'chasi 33-uy https://yandex.uz/maps/10335/tashkent/?ll=69.262391%2C41.286199&mode=whatshere&whatshere%5Bpoint%5D=69.262208%2C41.286231&whatshere%5Bzoom%5D=16&z=19
 """
 
 async def ask_openai(question):
