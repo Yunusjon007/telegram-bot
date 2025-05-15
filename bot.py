@@ -33,7 +33,7 @@ Lokatsiya: https://yandex.uz/maps/10335/tashkent/?ll=69.262391%2C41.286199&mode=
 
 async def ask_openai(question):
     prompt = f"""
-Faqat quyidagi ma’lumotlarga asoslanib javob ber. Javob faqat o‘zbek lotin tilida bo‘lsin. Agar savol ma’lumotlarga to‘g‘ri kelmasa, "Kechirasiz, bu bo‘yicha ma’lumot yo‘q." deb yoz.
+Faqat quyidagi ma’lumotlarga asoslanib javob ber. Javob faqat o‘zbek lotin tilida bo‘lsin. Agar savol ma’lumotlarga to‘g‘ri kelmasa, "Kechirasiz, siz so‘ragan savolga to‘g‘ridan-to‘g‘ri javob topilmadi, ammo biz istalgan turdagi kreditni pasport asosida olib bera olamiz. Uy ipotekasi, avtomobil krediti, kichik miqdordagi kreditlar va hatto yomon kredit tarixiga ega mijozlar uchun ham yechimlarimiz bor. Qo‘shimcha ma’lumot uchun +99878 555–22–55 raqamiga murojaat qiling yoki @kreditmarkazi_admin bilan bog‘laning." deb yoz.
 
 Ma’lumotlar:
 {knowledge_base}
