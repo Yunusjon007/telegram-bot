@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import asyncio
-from telegram.ext import Application, MessageHandler, filters, ContextTypes
+from telegram.ext import Application, MessageHandler, filters, ContextTypes, CommandHandler
 from telegram import Update
 from openai import OpenAI
 
@@ -36,3 +36,21 @@ Savol:
     )
     return chat_response.choices[0].message.content.strip()
 
+async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_msg = update.message.text
+    print(f"Foydalanuvchidan kelgan: {user_msg}")
+    reply = await ask_openai(user_msg)
+    print(f"Yuboriladigan javob: {reply}")
+    await update.message.reply_text(reply)
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("Bot ishga tushdi ✅")
+
+async def main():
+    app = Application.builder().token(os.getenv("TELEGRAM_BOT_TOKEN")).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    await app.run_polling()
+
+if __name__ == "__main__":
+    asyncio.run(main())
